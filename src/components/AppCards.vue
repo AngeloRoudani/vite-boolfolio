@@ -24,7 +24,9 @@
 
         props: {
             data: Array,
-            url: String
+            url: String,
+            currentPage: Number,
+            lastPage: Number
         },
         data() {
             return {
