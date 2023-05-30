@@ -38,6 +38,7 @@ export default {
                 .then(response => {
                 
                     this.projects = response.data.results;
+                    
                 });
         }
 
