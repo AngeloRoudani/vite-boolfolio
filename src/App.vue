@@ -1,9 +1,13 @@
 <template>
 
     <div class="container mx-auto">
+        <div class="row d-flex flex-wrap">
 
-        <AppHeader/>
-        <AppCards/>
+            <AppHeader/>
+
+            <AppCards :data="projects"/>
+            
+        </div>
 
     </div>
 
@@ -32,7 +36,7 @@ export default {
 
             axios.get(`${this.firstUrl}/api/projects`)
                 .then(response => {
-                    console.log(response);
+                
                     this.projects = response.data.results;
                 });
         }
