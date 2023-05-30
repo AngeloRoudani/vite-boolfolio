@@ -5,8 +5,8 @@
 
             <AppHeader/>
 
-            <AppCards :data="projects"/>
-            
+            <AppCards :data="projects" :url="firstUrl"/>
+
         </div>
 
     </div>
