@@ -30,11 +30,11 @@
                     },
                     {
                         label: 'Contatti',
-                        routeName: 'contact'
+                        routeName: 'contatti'
                     },
                     {
                         label: 'Progetti',
-                        routeName: 'list'
+                        routeName: 'lista-progetti'
                     },
                 ]
             }
