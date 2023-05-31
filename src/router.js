@@ -19,8 +19,8 @@ const router = createRouter({
             component: AppContact
         },
         {
-            path: '/project',
-            name: 'progetto',
+            path: '/project/:slug',
+            name: 'project',
             component: CardShow
         },
         {

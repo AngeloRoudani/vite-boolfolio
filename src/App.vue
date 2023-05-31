@@ -19,7 +19,7 @@
 <script>
 
 import AppHeader from './components/AppHeader.vue';
-import axios from 'axios';
+import { store } from './store.js';
 
 export default {
     components: {
@@ -27,39 +27,8 @@ export default {
     },
     data() {
         return {
-            projects: [],
-            firstUrl: 'http://localhost:8000',
-            current: 1,
-            last: ''
+            store
         }
-    },
-    methods: {
-        getProjects(page) {
-
-            axios.get(`${this.firstUrl}/api/projects`,{
-                params: {
-                    page: page
-                }
-            }
-            )
-            .then(response => {
-            
-                this.projects = response.data.results.data;
-                this.current = response.data.results.current_page;
-                this.last = response.data.results.last_page;
-
-            });
-        },
-        getNext () {
-            this.getProjects(current + 1)
-        },
-        getPrev () {
-            this.getProjects(current - 1)
-        }
-
-    },
-    mounted() {
-        this.getProjects(1);
     }
     
 }

@@ -1,7 +1,7 @@
 <template>
 
     <div class="card col-2 m-1">
-        <img v-if="content.image" :src="`${this.url}/storage/${content.image}`" class="card-img-top" alt="content.name"/>
+        <img v-if="content.image" :src="`${this.store.firstUrl}/storage/${content.image}`" class="card-img-top" alt="content.name"/>
         
             <img v-else src="../../public/broken.jpg" class="card-img-top" />
     
@@ -13,6 +13,9 @@
                 <li v-if="content.technologies" class="list-group-item">{{content.technologies.name}}</li>
             </ul>
             <p class="card-text">{{ cutString(content.description) }}</p>
+            <router-link :to="{name: 'project', params: {slug: content.slug}}" class="btn btn-success">
+                Vedi Progetto
+            </router-link>
         </div>
     </div>
 
@@ -20,12 +23,15 @@
 
 <script>
 
+    import { store } from '../store.js';
+
     export default {
 
         props: ['content', 'url'],
         data() {
             return {
-                photo: 'broken.jpg'
+                photo: 'broken.jpg',
+                store
             }
         },
         
