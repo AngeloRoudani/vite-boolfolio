@@ -5,24 +5,9 @@
 
             <AppHeader/>
 
-            <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                        <a class="page-link {{  }}" aria-label="Previous" @click="getProjects(current - 1)" :class="{'disabled' : current == 1}">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                        </li>
-                        <li class="page-item">
-                        <a class="page-link" aria-label="Next " @click="getProjects(current + 1)" :class="{'disabled' : current == last}">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                        </li>
-                    </ul>
-            </nav>
+            <router-view>
 
-            <AppCards   :data="projects" 
-                        :url="firstUrl"
-            />
+            </router-view>
 
         </div>
 
@@ -34,13 +19,11 @@
 <script>
 
 import AppHeader from './components/AppHeader.vue';
-import AppCards from './components/AppCards.vue';
 import axios from 'axios';
 
 export default {
     components: {
-        AppHeader,
-        AppCards
+        AppHeader
     },
     data() {
         return {
@@ -66,6 +49,12 @@ export default {
                 this.last = response.data.results.last_page;
 
             });
+        },
+        getNext () {
+            this.getProjects(current + 1)
+        },
+        getPrev () {
+            this.getProjects(current - 1)
         }
 
     },

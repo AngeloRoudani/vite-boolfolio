@@ -1,0 +1,23 @@
+<template>
+    <div class="container">
+        <h1>Welcome</h1>
+    </div>
+
+</template>
+
+<script>
+
+    export default {
+        
+        name: "AppWelcome",
+        
+    }
+
+</script>
+
+<style lang="scss">
+
+
+
+
+</style>

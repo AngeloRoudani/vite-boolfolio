@@ -1,6 +1,6 @@
 <template>
 
-    <div v-for="content in data" class="card col-2 m-1">
+    <div class="card col-2 m-1">
         <img v-if="content.image" :src="`${this.url}/storage/${content.image}`" class="card-img-top" alt="content.name"/>
         
             <img v-else src="../../public/broken.jpg" class="card-img-top" />
@@ -22,12 +22,7 @@
 
     export default {
 
-        props: {
-            data: Array,
-            url: String,
-            currentPage: Number,
-            lastPage: Number
-        },
+        props: ['content', 'url'],
         data() {
             return {
                 photo: 'broken.jpg'

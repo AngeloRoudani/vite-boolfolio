@@ -3,8 +3,10 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <li v-for="(element,index) in links " :key="index" class="nav-item">
+                    <router-link :to="{ name: element.routeName }" class="nav-link">
+                        {{ element.label }}
+                    </router-link>
                     </li>
                 </ul>
             
@@ -19,6 +21,24 @@
     export default {
         
         name: "AppHeader",
+        data() {
+            return {
+                links: [
+                    {
+                        label: 'Home',
+                        routeName: 'welcome'
+                    },
+                    {
+                        label: 'Contatti',
+                        routeName: 'contact'
+                    },
+                    {
+                        label: 'Progetti',
+                        routeName: 'list'
+                    },
+                ]
+            }
+        }
         
     }
 
